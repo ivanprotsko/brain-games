@@ -5,7 +5,8 @@
   "description": "[![Actions Status](https://github.com/ivanprotsko/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/ivanprotsko/frontend-project-44/actions)",
   "main": "index.js",
   "bin": {
-    "frontend-project-44": "brain-games.js"
+    "frontend-project-44": "brain-games.js",
+    "brain-games": "bin/brain-games.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
