@@ -8,11 +8,11 @@ install-eslint-packages:
 	npm install eslint-plugin-import
 
 lint:
-	npx eslint
+	npx eslint ./bin/
 
 brain-games: 
 	node ./bin/brain-games.js
 
 publish:
-	npm publish --dry-runbr
+	npm publish --dry-run
 
