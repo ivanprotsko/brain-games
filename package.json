@@ -1,5 +1,5 @@
 {
-  "name": "@hexlet/code",
+  "name": "fronted-project-44",
   "version": "1.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/ivanprotsko/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/ivanprotsko/frontend-project-44/actions)",
@@ -32,7 +32,7 @@
     "prettier": "^2.8.0"
   },
   "dependencies": {
-    "node": "^16.16.0",
+    "node": "^14.17.3",
     "readline-sync": "^1.4.10"
   }
 }
