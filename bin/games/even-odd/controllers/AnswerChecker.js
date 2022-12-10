@@ -1,4 +1,4 @@
-const YesOrNoAnswerChecker = (correctAnswer, userAnswer) => {
+const AnswerChecker = (correctAnswer, userAnswer) => {
   if (correctAnswer === userAnswer) {
     userAnswer = true;
   } else if (userAnswer !== 'no' && userAnswer !== 'yes') {
@@ -9,4 +9,4 @@ const YesOrNoAnswerChecker = (correctAnswer, userAnswer) => {
   return userAnswer;
 };
 
-export default YesOrNoAnswerChecker;
+export default AnswerChecker;

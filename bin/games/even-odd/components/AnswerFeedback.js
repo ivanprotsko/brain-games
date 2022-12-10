@@ -1,12 +1,13 @@
 import OutputMessage from '../../../ui/OutputMessage.js';
 
-const YesOrNoAnswerCheckerOutputMessage = (answer, userName) => {
+const AnswerFeedback = (answer, userName, correctAnswer) => {
+  const trueAnswer = correctAnswer;
   switch (answer) {
     case true:
       OutputMessage('Correct!');
       break;
     case false:
-      OutputMessage('Wrong! Correct answer is "no"');
+      OutputMessage(`Wrong! Correct answer is "${trueAnswer}"`);
       OutputMessage(`Let's try again, ${userName}`);
       break;
     case 'out-of-rules':
@@ -18,4 +19,4 @@ const YesOrNoAnswerCheckerOutputMessage = (answer, userName) => {
   }
 };
 
-export default YesOrNoAnswerCheckerOutputMessage;
+export default AnswerFeedback;
