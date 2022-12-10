@@ -2,7 +2,7 @@ import OutputMessage from '../../ui/OutputMessage.js';
 import NameQuestDialog from '../../ui/NameQuest.js';
 import QuestionAnswer from './components/QuestionAnswer.js';
 
-const NumberSumGame = () => {
+const FindAGapGame = () => {
   const getRandomArbitrary = (min, max) => {
     return Math.round(Math.random() * (max - min) + min);
   };
@@ -59,4 +59,4 @@ const NumberSumGame = () => {
   }
 };
 
-export default NumberSumGame;
+export default FindAGapGame;
