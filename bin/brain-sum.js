@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import SumOfNumberGame from './games/sum-of-num/number-sum.js';
+import SumOfNumberGame from '../src/games/number-sum.js';
 
 SumOfNumberGame();
 

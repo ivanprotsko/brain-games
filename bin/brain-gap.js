@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import FindAGapGame from './games/find-a-gap/fing-a-gap.js';
+import FindAGapGame from '../src/games/fing-a-gap.js';
 
 FindAGapGame();
