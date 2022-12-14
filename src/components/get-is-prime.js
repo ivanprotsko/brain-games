@@ -1,22 +1,8 @@
-function getIsPrime(n) {
-  if (n===1)
-  {
-    return false;
+function getIsPrime(num) {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++) {
+    if (num % i === 0) return false;
   }
-  else if (n === 2)
-  {
-    return true;
-  } else
-  {
-    for(var x = 2; x < n; x++)
-    {
-      if(n % x === 0)
-      {
-        return false;
-      }
-    }
-    return true;
-  }
+  return num > 1;
 }
 
 export default getIsPrime;

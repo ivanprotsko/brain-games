@@ -5,7 +5,7 @@ function GetFeedback(userName, userAnswer, correctAnswer, correctAnswerSum, ques
     } else {
       // Exit game
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-      console.log(`Let's try again, ${name}`);
+      console.log(`Let's try again, ${userName}`);
       correctAnswerSum = -1;
     }
   } else {
