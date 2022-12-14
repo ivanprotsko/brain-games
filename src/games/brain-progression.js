@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import GetFeedback from '../components/get-feedback.js';
+import GetFeedbackNumber from '../components/get-feedback-number.js';
 import getRandomArbitrary from '../components/get-random-arbitrary.js';
 import getProgression from '../components/get-progression.js';
 import Cli from '../cli.js';
@@ -19,7 +19,7 @@ const FindAGapGame = (gameRounds) => {
     console.log(progression);
     const userAnswer = parseInt(readlineSync.question('Your answer:'));
     // Is asnwer type equal number?
-    correctAnswerSum = GetFeedback(
+    correctAnswerSum = GetFeedbackNumber(
       gameType,
       userName,
       userAnswer,

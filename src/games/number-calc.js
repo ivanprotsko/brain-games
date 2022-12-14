@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import GetFeedback from '../components/get-feedback.js';
+import GetFeedbackNumber from '../components/get-feedback-number.js';
 import getRandom from '../components/get-random.js';
 import Cli from '../cli.js';
 import GetGreeting from '../components/get-greeting.js';
@@ -19,8 +19,7 @@ const BrainCalc = (gameRounds) => {
     console.log(correctAnswer);
     console.log(`What is sum of numbers: ${numberOne} ${randomOperator} ${numberTwo}?`);
     const userAnswer = parseInt(readlineSync.question('Your answer: '));
-    correctAnswerSum = GetFeedback(
-      gameType,
+    correctAnswerSum = GetFeedbackNumber(
       userName,
       userAnswer,
       correctAnswer,

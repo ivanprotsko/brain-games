@@ -1,9 +1,10 @@
 import readlineSync from 'readline-sync';
 import getIsPrime from '../components/get-is-prime.js';
 import getRandomArbitrary from '../components/get-random-arbitrary.js';
-import GetFeedback from '../components/get-feedback.js';
+import GetFeedbackNumber from '../components/get-feedback-number.js';
 import Cli from '../cli.js';
 import GetGreeting from '../components/get-greeting.js';
+import GetFeedbackYesOrNo from '../components/get-feedback-yes-or-no.js';
 
 const BrainPrime = (gameRounds) => {
   const gameType = 'game-type-yes-or-no';
@@ -15,13 +16,12 @@ const BrainPrime = (gameRounds) => {
     console.log('Is the number prime?');
     console.log(`${randomNumber}?`);
     const userAnswer = readlineSync.question('Your answer: ');
-    correctAnswerSum = GetFeedback(
-      gameType,
+    correctAnswerSum = GetFeedbackYesOrNo(
       userName,
       userAnswer,
       correctAnswer,
       correctAnswerSum,
-      gameRounds,
+      questionQuantityNumber,
     );
   }
 };

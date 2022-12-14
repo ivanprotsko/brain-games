@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import getRandom from '../components/get-random.js';
-import GetFeedback from '../components/get-feedback.js';
+import GetFeedbackNumber from '../components/get-feedback-number.js';
 import GetGCDOfTwoNumbers from '../components/get-gcd-two-numbers.js';
 import Cli from '../cli.js';
 import GetGreeting from '../components/get-greeting.js';
@@ -16,7 +16,7 @@ const BrainGCD = (gameRounds) => {
     const correctAnswer = GetGCDOfTwoNumbers(numberOne, numberTwo);
     console.log(`${numberOne}, ${numberTwo}`);
     const userAnswer = parseInt(readlineSync.question('Your answer:'));
-    correctAnswerSum = GetFeedback(
+    correctAnswerSum = GetFeedbackNumber(
       gameType,
       userName,
       userAnswer,
