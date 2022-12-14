@@ -1,5 +1,4 @@
 #!/usr/bin/env node
+import BrainPrime from '../src/games/brain-prime.js';
 
-import IsNumberPrimeGame from '../src/games/is-number-prime.js';
-
-IsNumberPrimeGame();
+BrainPrime(3);
