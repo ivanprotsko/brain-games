@@ -11,6 +11,7 @@ export function outOfRulesFeedback(gameType) {
       break;
     default:
       console.log('Game type is undefined.');
+      break;
   }
 }
 export function correctAnswerFeedback() {
