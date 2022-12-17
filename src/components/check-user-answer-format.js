@@ -5,7 +5,7 @@ function checkUserAnswerFormat(gameType, userAnswer) {
   }
   if (gameType === 'game-type-number') {
     result = !isNaN(userAnswer);
-  }
+  }g
   return result;
 }
 
