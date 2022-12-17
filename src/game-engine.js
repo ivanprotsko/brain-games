@@ -9,7 +9,6 @@ export const gameEngine = (description, gameRounds, getRoundData) => {
     let roundData = getRoundData();
     let { question } = roundData;
     let { answer } = roundData;
-    console.log(answer, typeof answer);
     console.log(`Question: ${question}?`);
     let userAnswer = readlineSync.question('Your answer: ');
     console.log(userAnswer, typeof userAnswer);
