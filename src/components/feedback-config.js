@@ -1,6 +1,3 @@
-export function resetCorrectAnswerSumCounter() {
-  return -1;
-}
 export function outOfRulesFeedback(gameType) {
   switch (gameType) {
     case 'game-type-yes-or-no':
@@ -17,8 +14,9 @@ export function outOfRulesFeedback(gameType) {
 export function correctAnswerFeedback() {
   console.log('Correct!');
 }
-export function wrongAnswerFeedback() {
-  console.log('Wrong!');
+export function wrongAnswerFeedback(userName, userAnswer, correctAnswer) {
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
+  console.log(`Let's try again, ${userName}`);
 }
 export function congratulationFeedback(userName) {
   console.log(`Congratulations, ${userName}!`);

@@ -1,9 +1,15 @@
 import readlineSync from 'readline-sync';
 import getRandom from '../components/get-random.js';
-import GetFeedbackNumber from '../components/get-feedback-number.js';
 import GetGCDOfTwoNumbers from '../components/get-gcd-two-numbers.js';
 import Cli from '../cli.js';
 import GetGreeting from '../components/get-greeting.js';
+import checkUserAnswerFormat from '../components/check-user-answer-format.js';
+import {
+  congratulationFeedback,
+  correctAnswerFeedback,
+  outOfRulesFeedback,
+  wrongAnswerFeedback,
+} from '../components/feedback-config.js';
 
 const BrainGCD = (gameRounds) => {
   const gameType = 'game-type-number';
@@ -16,14 +22,24 @@ const BrainGCD = (gameRounds) => {
     const correctAnswer = GetGCDOfTwoNumbers(numberOne, numberTwo);
     console.log(`${numberOne}, ${numberTwo}`);
     const userAnswer = parseInt(readlineSync.question('Your answer:'));
-    correctAnswerSum = GetFeedbackNumber(
-      gameType,
-      userName,
-      userAnswer,
-      correctAnswer,
-      correctAnswerSum,
-      gameRounds,
-    );
+    const userAnswerFormat = checkUserAnswerFormat(gameType, userAnswer);
+
+    if (!userAnswerFormat) {
+      correctAnswerSum = outOfRulesFeedback(gameType);
+      correctAnswerSum = -1;
+    }
+
+    if (userAnswer === correctAnswer) {
+      correctAnswerFeedback();
+    }
+    if (userAnswer !== correctAnswer) {
+      correctAnswerSum = wrongAnswerFeedback(userName, userAnswer, correctAnswer);
+      correctAnswerSum = -1;
+    }
+
+    if (correctAnswerSum === gameRounds - 1) {
+      congratulationFeedback(userName);
+    }
   }
 };
 

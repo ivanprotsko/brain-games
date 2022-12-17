@@ -1,9 +1,15 @@
 import readlineSync from 'readline-sync';
-import GetFeedbackNumber from '../components/get-feedback-number.js';
 import getRandomArbitrary from '../components/get-random-arbitrary.js';
 import getProgression from '../components/get-progression.js';
 import Cli from '../cli.js';
 import GetGreeting from '../components/get-greeting.js';
+import checkUserAnswerFormat from '../components/check-user-answer-format.js';
+import {
+  congratulationFeedback,
+  correctAnswerFeedback,
+  outOfRulesFeedback,
+  wrongAnswerFeedback,
+} from '../components/feedback-config.js';
 const FindAGapGame = (gameRounds) => {
   const gameType = 'game-type-number';
   GetGreeting();
@@ -18,15 +24,23 @@ const FindAGapGame = (gameRounds) => {
     progression.splice(getArrayRandomGap, 1,'...');
     console.log(progression);
     const userAnswer = parseInt(readlineSync.question('Your answer:'));
-    // Is asnwer type equal number?
-    correctAnswerSum = GetFeedbackNumber(
-      gameType,
-      userName,
-      userAnswer,
-      correctAnswer,
-      correctAnswerSum,
-      gameRounds,
-    );
+    const userAnswerFormat = checkUserAnswerFormat(gameType, userAnswer);
+    if (!userAnswerFormat) {
+      correctAnswerSum = outOfRulesFeedback(gameType);
+      correctAnswerSum = -1;
+    }
+
+    if (userAnswer === correctAnswer) {
+      correctAnswerFeedback();
+    }
+    if (userAnswer !== correctAnswer) {
+      correctAnswerSum = wrongAnswerFeedback(userName, userAnswer, correctAnswer);
+      correctAnswerSum = -1;
+    }
+
+    if (correctAnswerSum === gameRounds - 1) {
+      congratulationFeedback(userName);
+    }
   }
 };
 

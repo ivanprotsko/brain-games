@@ -2,7 +2,13 @@ import readlineSync from 'readline-sync';
 import getRandom from '../components/get-random.js';
 import cli from '../cli.js';
 import getGreeting from '../components/get-greeting.js';
-import getFeedbackYesOrNo from '../components/get-feedback-yes-or-no.js';
+import checkUserAnswerFormat from '../components/check-user-answer-format.js';
+import {
+  correctAnswerFeedback,
+  wrongAnswerFeedback,
+  outOfRulesFeedback,
+  congratulationFeedback,
+} from '../components/feedback-config.js';
 
 const BrainEven = (gameRounds) => {
   const gameType = 'game-type-yes-or-no';
@@ -14,15 +20,23 @@ const BrainEven = (gameRounds) => {
     console.log(`Is "${sum}" even?`);
     const correctAnswer = (sum % 2 === 0) ? 'yes' : 'no';
     const userAnswer = readlineSync.question('Your answer: ');
-    let gameProps = {
-      userName: userName,
-      userAnswer: userAnswer,
-      correctAnswer: correctAnswer,
-      correctAnswerSum: correctAnswerSum,
-      gameType: 'game-type-yes-or-no',
-      gameRounds: gameRounds,
-    };
-    correctAnswerSum = getFeedbackYesOrNo(gameProps);
+    const userAnswerFormat = checkUserAnswerFormat(gameType, userAnswer);
+    if (!userAnswerFormat) {
+      correctAnswerSum = outOfRulesFeedback(gameType);
+      correctAnswerSum = -1;
+    }
+
+    if (userAnswer === correctAnswer) {
+      correctAnswerFeedback();
+    }
+    if (userAnswer !== correctAnswer) {
+      correctAnswerSum = wrongAnswerFeedback(userName, userAnswer, correctAnswer);
+      correctAnswerSum = -1;
+    }
+
+    if (correctAnswerSum === gameRounds - 1) {
+      congratulationFeedback(userName);
+    }
   }
 };
 export default BrainEven;

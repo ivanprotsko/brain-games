@@ -1,10 +1,16 @@
 import readlineSync from 'readline-sync';
-import GetFeedbackNumber from '../components/get-feedback-number.js';
 import getRandom from '../components/get-random.js';
 import Cli from '../cli.js';
 import GetGreeting from '../components/get-greeting.js';
 import getRandomArbitrary from '../components/get-random-arbitrary.js';
 import getFormulaResult from '../components/get-formula-result.js';
+import checkUserAnswerFormat from "../components/check-user-answer-format.js";
+import {
+  congratulationFeedback,
+  correctAnswerFeedback,
+  outOfRulesFeedback,
+  wrongAnswerFeedback,
+} from "../components/feedback-config.js";
 
 const BrainCalc = (gameRounds) => {
   const gameType = 'game-type-number';
@@ -19,15 +25,24 @@ const BrainCalc = (gameRounds) => {
     console.log(correctAnswer);
     console.log(`What is sum of numbers: ${numberOne} ${randomOperator} ${numberTwo}?`);
     const userAnswer = parseInt(readlineSync.question('Your answer: '));
-    let gameProps = {
-      userName: userName,
-      userAnswer: userAnswer,
-      correctAnswer: correctAnswer,
-      correctAnswerSum: correctAnswerSum,
-      gameType: 'game-type-number',
-      gameRounds: gameRounds,
-    };
-    correctAnswerSum = GetFeedbackNumber(gameProps);
+    const userAnswerFormat = checkUserAnswerFormat(gameType, userAnswer);
+    if (!userAnswerFormat) {
+      correctAnswerSum = outOfRulesFeedback(gameType);
+      correctAnswerSum = -1;
+    }
+
+    if (userAnswer === correctAnswer) {
+      correctAnswerFeedback();
+    }
+    if (userAnswer !== correctAnswer) {
+      correctAnswerSum = wrongAnswerFeedback(userName, userAnswer, correctAnswer);
+      correctAnswerSum = -1;
+    }
+
+    if (correctAnswerSum === gameRounds - 1) {
+      congratulationFeedback(userName);
+    }
+
   }
 };
 export default BrainCalc;
