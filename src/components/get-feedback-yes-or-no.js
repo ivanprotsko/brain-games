@@ -1,23 +1,33 @@
-function GetFeedback(userName, userAnswer, correctAnswer, correctAnswerSum, questionQuantityNumber) {
-  switch (userAnswer) {
-    case (userAnswer === 'yes' || userAnswer === 'no'):
-      if (userAnswer === correctAnswer) {
-        console.log('Correct!');
-      } else {
-        // Exit game
-        console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-        console.log(`Let's try again, ${userName}`);
-        correctAnswerSum = -1;
-      }
-      break;
-    default:
-      console.log('Please, answer only "yes" or "no"');
-      correctAnswerSum = -1;
+import {
+  correctAnswerFeedback,
+  wrongAnswerFeedback,
+  outOfRulesFeedback,
+  congratulationFeedback,
+  resetCorrectAnswerSumCounter,
+} from './config-feedback.js';
+
+function getFeedbackYesOrNo(props) {
+  const { userName } = props;
+  const { userAnswer } = props;
+  const { correctAnswer } = props;
+  const { gameType } = props;
+  const { gameRounds } = props;
+  let { correctAnswerSum } = props;
+
+  if (userAnswer === 'yes' || userAnswer === 'no') {
+    if (userAnswer === correctAnswer) {
+      correctAnswerFeedback();
+    } else {
+      wrongAnswerFeedback(correctAnswerSum);
+      correctAnswerSum = resetCorrectAnswerSumCounter();
+    }
+  } else {
+    outOfRulesFeedback(gameType);
+    correctAnswerSum = resetCorrectAnswerSumCounter();
   }
-  if (correctAnswerSum === questionQuantityNumber - 1) {
-    console.log(`Contratulations, ${userName}!`);
+  if (correctAnswerSum === gameRounds - 1) {
+    congratulationFeedback(userName);
   }
   return correctAnswerSum;
 }
-
-export default GetFeedback;
+export default getFeedbackYesOrNo;

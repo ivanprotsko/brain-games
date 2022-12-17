@@ -1,4 +1,4 @@
-function GetGCDOfTwoNumbers(x, y) {
+function getGCDOfTwoNumbers(x, y) {
   if ((typeof x !== 'number') || (typeof y !== 'number'))
     return false;
   x = Math.abs(x);
@@ -11,4 +11,4 @@ function GetGCDOfTwoNumbers(x, y) {
   return x;
 }
 
-export default GetGCDOfTwoNumbers;
+export default getGCDOfTwoNumbers;

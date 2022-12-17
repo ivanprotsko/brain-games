@@ -1,4 +1,4 @@
-function GetGreeting() {
+function getGreeting() {
   console.log('Welcome to the Brain Games!');
 }
-export default GetGreeting;
+export default getGreeting;

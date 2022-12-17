@@ -19,13 +19,15 @@ const BrainCalc = (gameRounds) => {
     console.log(correctAnswer);
     console.log(`What is sum of numbers: ${numberOne} ${randomOperator} ${numberTwo}?`);
     const userAnswer = parseInt(readlineSync.question('Your answer: '));
-    correctAnswerSum = GetFeedbackNumber(
-      userName,
-      userAnswer,
-      correctAnswer,
-      correctAnswerSum,
-      gameRounds,
-    );
+    let gameProps = {
+      userName: userName,
+      userAnswer: userAnswer,
+      correctAnswer: correctAnswer,
+      correctAnswerSum: correctAnswerSum,
+      gameType: 'game-type-number',
+      gameRounds: gameRounds,
+    };
+    correctAnswerSum = GetFeedbackNumber(gameProps);
   }
 };
 export default BrainCalc;
