@@ -1,6 +1,5 @@
 function checkUserAnswerFormat(gameType, userAnswer, userAnswerFormat) {
-  if (gameType === 'game-type-yes-or-no') {
-    if (userAnswer === 'yes' || userAnswer === 'no') {
+  if (gameType === 'game-type-yes-or-no' && (userAnswer === 'yes' || userAnswer === 'no') {
       userAnswerFormat = true;
     } else {
       userAnswerFormat = false;
