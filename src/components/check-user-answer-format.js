@@ -1,18 +1,19 @@
-function checkUserAnswerFormat(gameType, userAnswer) {
-  switch (gameType) {
-    case 'game-type-yes-or-no':
-      if (userAnswer === 'yes') {
-        return true;
-      } if (userAnswer === 'no') {
-        return true;
-      }
-      return false;
-    case 'game-type-number':
-      if (!isNaN(userAnswer)) {
-        return true;
-      }
-      return false;
+function checkUserAnswerFormat(gameType, userAnswer, userAnswerFormat) {
+  if (gameType === 'game-type-yes-or-no') {
+    if (userAnswer === 'yes' || userAnswer === 'no') {
+      userAnswerFormat = true;
+    } else {
+      userAnswerFormat = false;
+    }
   }
+  if (gameType === 'game-type-number') {
+    if (!isNaN(userAnswer)) {
+      userAnswerFormat = true;
+    } else {
+      userAnswerFormat = false;
+    }
+  }
+  return userAnswerFormat;
 }
 
 export default checkUserAnswerFormat;
