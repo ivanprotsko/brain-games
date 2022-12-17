@@ -1,19 +1,18 @@
 function checkUserAnswerFormat(gameType, userAnswer) {
   switch (gameType) {
     case 'game-type-yes-or-no':
-      if (userAnswer === 'yes' || userAnswer === 'no') {
+      if (userAnswer === 'yes') {
         return true;
-      } else {
-        return false;
+      } if (userAnswer === 'no') {
+        return true;
       }
-      break;
+      return false;
     case 'game-type-number':
       if (!isNaN(userAnswer)) {
         return true;
-      } else {
-        return false;
       }
+      return false;
   }
-};
+}
 
 export default checkUserAnswerFormat;
