@@ -7,7 +7,6 @@ export default (description, gameRounds, getRoundData) => {
   let i;
   for (i = 0; i < gameRounds; i += 1) {
     const { question, answer } = getRoundData();
-    console.log(answer);
     console.log(`Question: ${question}?`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === answer.toString()) console.log('Correct!');

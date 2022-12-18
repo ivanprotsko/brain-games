@@ -1,4 +1,3 @@
-import getRandom from './get-random.js';
 import getRandomArbitrary from './get-random-arbitrary.js';
 import gameEngine from './game-engine.js';
 
@@ -23,8 +22,8 @@ const runCalc = (gameRounds) => {
     return result;
   }
   const getRoundData = () => {
-    const numberOne = getRandom();
-    const numberTwo = getRandom();
+    const numberOne = getRandomArbitrary();
+    const numberTwo = getRandomArbitrary();
     const operators = ['+', '-', '*'];
     const randomOperator = operators[getRandomArbitrary(0, 2)];
     const question = `${numberOne} ${randomOperator} ${numberTwo}`;

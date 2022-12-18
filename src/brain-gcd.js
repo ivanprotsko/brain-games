@@ -1,5 +1,5 @@
-import getRandom from './get-random.js';
 import gameEngine from './game-engine.js';
+import getRandomArbitrary from './get-random-arbitrary.js';
 
 const runGCD = (gameRounds) => {
   const description = 'Find the greatest common divisor of given numbers.';
@@ -9,8 +9,8 @@ const runGCD = (gameRounds) => {
   };
 
   const getRoundData = () => {
-    const numberOne = getRandom();
-    const numberTwo = getRandom();
+    const numberOne = getRandomArbitrary();
+    const numberTwo = getRandomArbitrary();
     const answer = getGCDOfTwoNumbers(numberOne, numberTwo);
     return {
       question: `${numberOne} ${numberTwo}`,

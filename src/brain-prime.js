@@ -1,5 +1,5 @@
-import getRandom from './get-random.js';
 import gameEngine from './game-engine.js';
+import getRandomArbitrary from './get-random-arbitrary.js';
 
 const runPrime = (gameRounds) => {
   const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -10,7 +10,7 @@ const runPrime = (gameRounds) => {
     return num > 1;
   }
   const getRoundData = () => {
-    const question = getRandom();
+    const question = getRandomArbitrary();
     const answer = getIsPrime(question) === true ? 'yes' : 'no';
     return { question, answer };
   };
