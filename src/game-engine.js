@@ -7,12 +7,11 @@ export default (description, gameRounds, getRoundData) => {
   let i;
   for (i = 0; i < gameRounds; i += 1) {
     const { question, answer } = getRoundData();
+    console.log(answer);
     console.log(`Question: ${question}?`);
-    let userAnswer = readlineSync.question('Your answer: ');
-    // console.log(userAnswer, typeof userAnswer);
-    if (!Number.isNaN(userAnswer)) userAnswer = parseInt(userAnswer, 10);
-    if (userAnswer === answer) console.log('Correct!');
-    if (userAnswer !== answer) {
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === answer.toString()) console.log('Correct!');
+    if (userAnswer !== answer.toString()) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'`);
       console.log(`Let's try again, ${userName}!`);
       break;
