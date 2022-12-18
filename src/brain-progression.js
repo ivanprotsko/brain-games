@@ -2,7 +2,7 @@ import getRandomArbitrary from './get-random-arbitrary.js';
 import { gameEngine } from './game-engine.js';
 
 const runProgression = (gameRounds) => {
-  const description = 'What type-type-number was missing?';
+  const description = 'What number is missing in the progression?';
   const getProgression = (n, lim) =>
     Array.from({ length: Math.ceil(lim / n) }, (_, i) => (i + 1) * n);
   const getRoundData = () => {
