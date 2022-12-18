@@ -21,7 +21,7 @@ const runGCD = (gameRounds) => {
     const numberTwo = getRandom();
     const answer = getGCDOfTwoNumbers(numberOne, numberTwo);
     return {
-      question: `${numberOne}, ${numberTwo}`,
+      question: `${numberOne} ${numberTwo}`,
       answer,
     };
   };
