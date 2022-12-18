@@ -6,12 +6,13 @@ const runProgression = (gameRounds) => {
   const getProgression = (n, lim) =>
     Array.from({ length: Math.ceil(lim / n) }, (_, i) => (i + 1) * n);
   const getRoundData = () => {
-    const arrayLenght = 10;
+    const arrayLenght = 5;
     const randomNumber = getRandomArbitrary(1, 25);
-    const question = getProgression(randomNumber, (randomNumber * arrayLenght));
-    const getArrayRandomGap = getRandomArbitrary(0, 9);
-    const answer = question[getArrayRandomGap];
-    question.splice(getArrayRandomGap, 1, '...');
+    const progression = getProgression(randomNumber, (randomNumber * arrayLenght));
+    const getArrayRandomGap = getRandomArbitrary(0, 4);
+    const answer = progression[getArrayRandomGap];
+    progression.splice(getArrayRandomGap, 1, '..');
+    let question = progression.join(' ');
     return { question, answer };
   };
   gameEngine(description, gameRounds, getRoundData);
