@@ -1,18 +1,16 @@
-import cli from './cli.js';
 import readlineSync from 'readline-sync';
+import cli from './cli.js';
 
-export const gameEngine = (description, gameRounds, getRoundData) => {
+export default (description, gameRounds, getRoundData) => {
   const userName = cli();
   console.log(description);
   let i;
   for (i = 0; i < gameRounds; i += 1) {
-    let roundData = getRoundData();
-    let { question } = roundData;
-    let { answer } = roundData;
+    const { question, answer } = getRoundData();
     console.log(`Question: ${question}?`);
     let userAnswer = readlineSync.question('Your answer: ');
-    console.log(userAnswer, typeof userAnswer);
-    if (!isNaN(userAnswer)) userAnswer = parseInt(userAnswer);
+    // console.log(userAnswer, typeof userAnswer);
+    if (!Number.isNaN(userAnswer)) userAnswer = parseInt(userAnswer, 10);
     if (userAnswer === answer) console.log('Correct!');
     if (userAnswer !== answer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'`);

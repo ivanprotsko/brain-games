@@ -1,20 +1,12 @@
 import getRandom from './get-random.js';
-import { gameEngine } from './game-engine.js';
+import gameEngine from './game-engine.js';
 
 const runGCD = (gameRounds) => {
   const description = 'Find the greatest common divisor of given numbers.';
-  function getGCDOfTwoNumbers(x, y) {
-    if ((typeof x !== 'number') || (typeof y !== 'number'))
-      return false;
-    x = Math.abs(x);
-    y = Math.abs(y);
-    while(y) {
-      var t = y;
-      y = x % y;
-      x = t;
-    }
-    return x;
-  }
+  const getGCDOfTwoNumbers = (a, b) => {
+    if (!b) return a;
+    return getGCDOfTwoNumbers(b, a % b);
+  };
 
   const getRoundData = () => {
     const numberOne = getRandom();

@@ -8,6 +8,7 @@ install-eslint-packages:
 
 lint:
 	npx eslint ./bin/
+	npx eslint ./src/
 
 publish:
 

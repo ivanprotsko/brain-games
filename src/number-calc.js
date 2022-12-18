@@ -1,6 +1,6 @@
 import getRandom from './get-random.js';
 import getRandomArbitrary from './get-random-arbitrary.js';
-import { gameEngine } from './game-engine.js';
+import gameEngine from './game-engine.js';
 
 const runCalc = (gameRounds) => {
   const description = 'What is the result of the expression?';
