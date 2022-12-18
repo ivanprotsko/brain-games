@@ -17,9 +17,8 @@ export const gameEngine = (description, gameRounds, getRoundData) => {
     if (userAnswer !== answer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'`);
       console.log(`Let's try again, ${userName}`);
-      i = -1;
+      break;
     }
     if (i === gameRounds - 1) console.log(`Congratulations, ${userName}!`);
-
   }
 };
